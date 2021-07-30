@@ -1,26 +1,14 @@
-import logo from './logo.svg';
 import VideoPlayer from './components/VideoPlayer'
-import './App.css';
-
+// import './static/css/styles.css';
+import VideoClip from './client/videos/amazon_walk_around.mp4' 
+import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <VideoPlayer/>
-      </header>
+    <div>
+        <VideoPlayer videoFile= {VideoClip}/>
+        <h1>Hello world</h1>
     </div>
+
   );
 }
 
