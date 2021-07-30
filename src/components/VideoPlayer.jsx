@@ -10,7 +10,6 @@ const VideoPlayer = (props) => {
             <ReactPlayer url={props.videoFile} playing={Playing}/>
             <Button onClick={() => setPlaying(true)}>Play</Button>
             <Button onClick={() => setPlaying(false)}>Pause</Button>
-            <Button>New Cue</Button>
         </div>
     );
   };
