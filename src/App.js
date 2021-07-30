@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import ReactPlayer from 'react-player'
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'/>
       </header>
     </div>
   );
