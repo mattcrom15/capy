@@ -21,6 +21,13 @@ const VideoPlayer = (props) => {
 
     function SeekTime(){
       const seek = player.current.seekTo(Time,'seconds')
+      setOnProgress(seek)
+    }
+
+    function restart(){
+      player.current.seekTo(0,'seconds')
+      setTime(0)
+      setOnProgress('playedSeconds')
     }
 
     return (
@@ -33,7 +40,7 @@ const VideoPlayer = (props) => {
             <Button onClick={() => setPlaying(true)}>Play</Button>
             <Button onClick={() => setPlaying(false)}>Pause</Button>
             <Button onClick={() => CurrentTime()}>set time</Button>
-            <Button onClick={() => setTime(0)}>Back</Button>
+            <Button onClick={() => restart()}>Back</Button>
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(seeking)}</p>
