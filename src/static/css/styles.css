@@ -1,43 +1,51 @@
-html{
-    background: black;
+:root {
+    --darkblue:#0d1117;
+    --midblue:#1e2b3f;
+    --midblue2:#2d415d;
+    --paleblue:#587092;
+    --lightblue:#c4dcff;
 }
 
-.ts-slider{
+
+
+
+html{
+    background:var(--darkblue);
+    color: white;
+}
+
+.timeline-slider{
 	width: 50%;
 	margin: auto 0;
-	margin-right: 15px;
+    margin-right: 15px;
+    cursor: pointer;
 
 }
 
-.slider-progress{
-	margin-right: 15px;
-	
-	
-}
 
 .slider-border{
 	display: flex;
-	background: rgb(0.7,0.7,0.7);
-	border-radius: rgb(0.1,0.1,0.1);
+	background: var(--midblue);
+	border-radius: var(--midblue2);
 	top:0;
 
 
 }
 
-.slider-1{
-	width:10%;
-	border-radius:  pink;
+.slider-progress{
+	widows: 0;
 	border-style: dotted;
 	border-width: 0 1px 0 0;
-	border-color: green;
+	border-color: var(--midblue2);
 	height:18px;
-	background: green;
+	background: var(--paleblue);
 	transition: 0.3s ease-in-out;
 }
 
-.slider-dolly{
-    background-color: wheat;
+.slider-playhead{
+    background-color: var(--lightblue);
     width: 5px;
     height: auto;
     position: 0;
+    cursor: pointer;
 }
