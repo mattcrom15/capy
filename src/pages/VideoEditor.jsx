@@ -13,7 +13,7 @@ function VideoEditor() {
 
   return (
     <div>
-        <VideoPlayer videoFile= {VideoClip}/>
+        <VideoPlayer videoFile= {VideoClip} />
         <h1>Hello world</h1>
         <Button >Add Cue</Button>
         <CueList>
