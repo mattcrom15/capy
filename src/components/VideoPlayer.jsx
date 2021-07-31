@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
-import Timeline from './Timeline'
 import Button from './Button'
 import PlayIcon from '../static/icons/play.svg'
 import PauseIcon from '../static/icons/pause.svg'
