@@ -6,28 +6,37 @@ import Button from './Button'
 
 const VideoPlayer = (props) => {
     const [Playing,setPlaying] = useState(false);
-    const [CT,setCT] = useState();
+    const [Time,setTime] = useState();
     const [VideoDuration, setVideoDuration] = useState();
-    const [OnProgress, setOnProgress] = useState();
+    const [OnProgress, setOnProgress] = useState('playedSeconds');
+    const [seeking,setSeeking] = useState(false)
     
     const player = React.createRef();
 
     function CurrentTime(){
       const time = player.current.getCurrentTime()
-      setCT(time)
+      setTime(time)
       return time
     } 
+
+    function SeekTime(){
+      const seek = player.current.seekTo(Time,'seconds')
+    }
 
     return (
         <div>
             <ReactPlayer url={props.videoFile} playing={Playing} ref={player} onDuration={setVideoDuration} onProgress={setOnProgress}/>
-            <Timeline value={OnProgress['playedSeconds']} max={VideoDuration}/>
+            <Timeline value={OnProgress['playedSeconds']}
+                    max={VideoDuration} 
+                    MouseDown={() =>setSeeking(true)}
+                    onMouseUp={()=> setSeeking(false)}/>
             <Button onClick={() => setPlaying(true)}>Play</Button>
             <Button onClick={() => setPlaying(false)}>Pause</Button>
             <Button onClick={() => CurrentTime()}>set time</Button>
-            <h1>{CT}</h1>
+            <Button onClick={() => setTime(0)}>Back</Button>
+            <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
-            <p>{}</p>
+            <p>{String(seeking)}</p>
         </div>
     );
   };

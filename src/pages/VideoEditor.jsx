@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import VideoPlayer from '../components/VideoPlayer'
 // import './static/css/styles.css';
 import VideoClip from '../client/videos/Ed Sheeran - blow - live.mp4' 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import '../static/css/styles.css'
 import CueList from '../components/CueList'
 import CueItem from '../components/CueItem'
 import Button from '../components/Button'

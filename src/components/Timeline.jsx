@@ -1,9 +1,17 @@
 import React from 'react'
 
+
+
 const Timeline = (props) => {
     return (
         <div>
-            <input type="range" min='0' max={props.max} value={props.value} />
+            <div className = "ts-slider">
+                <div className = "slider-border">
+                    <div className = "slider-1"  style = {{width: props.value}} ></div>
+                    <div className="slider-dolly"></div>
+                </div>
+            </div>
+
         </div>
     );
   };

@@ -1,3 +1,43 @@
 html{
     background: black;
 }
+
+.ts-slider{
+	width: 50%;
+	margin: auto 0;
+	margin-right: 15px;
+
+}
+
+.slider-progress{
+	margin-right: 15px;
+	
+	
+}
+
+.slider-border{
+	display: flex;
+	background: rgb(0.7,0.7,0.7);
+	border-radius: rgb(0.1,0.1,0.1);
+	top:0;
+
+
+}
+
+.slider-1{
+	width:10%;
+	border-radius:  pink;
+	border-style: dotted;
+	border-width: 0 1px 0 0;
+	border-color: green;
+	height:18px;
+	background: green;
+	transition: 0.3s ease-in-out;
+}
+
+.slider-dolly{
+    background-color: wheat;
+    width: 5px;
+    height: auto;
+    position: 0;
+}
