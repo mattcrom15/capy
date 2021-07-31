@@ -8,11 +8,13 @@ import CueItem from '../components/CueItem'
 import Button from '../components/Button'
 
 
+
 function VideoEditor() {
     const [CueItems,setCueItems] = useState(['test','test02']);
 
   return (
     <div>
+        
         <VideoPlayer videoFile= {VideoClip} />
         <h1>Hello world</h1>
         <Button >Add Cue</Button>

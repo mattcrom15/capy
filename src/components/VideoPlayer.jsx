@@ -6,6 +6,7 @@ import PlayIcon from '../static/icons/play.svg'
 import PauseIcon from '../static/icons/pause.svg'
 import BackIcon from '../static/icons/skip-back.svg'
 import filePlusIcon from '../static/icons/file-plus.svg'
+import OverlaySlider from './overlaySlider'
 
 
 const VideoPlayer = (props) => {
@@ -47,12 +48,14 @@ const VideoPlayer = (props) => {
             playing={Playing} 
             ref={player} 
             onDuration={setVideoDuration} onProgress={setOnProgress}/>
-            <Timeline value={OnProgress['playedSeconds']}
-            max={VideoDuration} 
+            <OverlaySlider  
+            value={OnProgress['playedSeconds']}
+            max={VideoDuration}
             MouseDown={() =>setSeeking(true)}
             seekChange={()=> seekChange(this)}
-            onMouseUp={()=> setSeeking(false)}
-            mm={(e)=>seekChange(this,e.nativeEvent.offsetX)}/>
+            onMouseUp={()=> setSeeking(false)}/>
+            {/* // mm={(e)=>seekChange(this,e.nativeEvent.offsetX)}/>  */}
+
             <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
             <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
             <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>

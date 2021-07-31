@@ -68,3 +68,20 @@ html{
 .icon-button:hover{
     filter: invert(0.3);
 }
+
+
+.stupid-slider{
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.marker{
+    position: absolute;
+    width: 5px;
+    height:100%;
+    background: green;
+    Top:0;
+    margin: 0;
+    padding: 0 5px;
+}
