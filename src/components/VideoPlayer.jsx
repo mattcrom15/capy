@@ -2,6 +2,10 @@ import React, { useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import Timeline from './Timeline'
 import Button from './Button'
+import PlayIcon from '../static/icons/play.svg'
+import PauseIcon from '../static/icons/pause.svg'
+import BackIcon from '../static/icons/skip-back.svg'
+import filePlusIcon from '../static/icons/file-plus.svg'
 
 
 const VideoPlayer = (props) => {
@@ -11,7 +15,6 @@ const VideoPlayer = (props) => {
     const [OnProgress, setOnProgress] = useState('playedSeconds');
     const [Seeking,setSeeking] = useState(false)
     const [Shit,setShit] = useState(0)
-    const [MouseMove, setMouseMove] = useState({"x": 0, "y": 0})
     
     const player = React.createRef();
 
@@ -28,20 +31,19 @@ const VideoPlayer = (props) => {
     }
 
     function seekChange(e,j) {
-      const MouseLocation =  j
+      const MouseLocation =  j 
       if(Seeking == true){
-        console.log(j)
         player.current.seekTo(MouseLocation,'seconds')
         setTime(MouseLocation)
-        
-        
       }
     
     }
 
     return (
-        <div>
+        <div className="video-player-container">
             <ReactPlayer url={props.videoFile} 
+            width='100%'
+            height='100%'
             playing={Playing} 
             ref={player} 
             onDuration={setVideoDuration} onProgress={setOnProgress}/>
@@ -51,10 +53,10 @@ const VideoPlayer = (props) => {
             seekChange={()=> seekChange(this)}
             onMouseUp={()=> setSeeking(false)}
             mm={(e)=>seekChange(this,e.nativeEvent.offsetX)}/>
-            <Button onClick={() => setPlaying(true)}>Play</Button>
-            <Button onClick={() => setPlaying(false)}>Pause</Button>
-            <Button onClick={() => CurrentTime()}>set time</Button>
-            <Button onClick={() => restart()}>Back</Button>
+            <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
+            <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
+            <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
+            <Button onClick={() => CurrentTime()} icon={filePlusIcon}>set time</Button>
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(Seeking)}</p>

@@ -15,9 +15,8 @@ html{
 }
 
 .timeline-slider{
-	width: 50%;
+	width: 100%;
 	margin: auto 0;
-    margin-right: 15px;
     cursor: pointer;
 
 }
@@ -48,4 +47,24 @@ html{
     height: auto;
     position: 0;
     cursor: pointer;
+}
+
+.video-player-container{
+    position: relative;
+    width: 50%;
+}
+
+.timeline-container{
+    width: auto;
+}
+
+.icon-button{
+    filter: invert(1);
+    color: white;
+    cursor: pointer;
+    margin: auto 10px;
+}
+
+.icon-button:hover{
+    filter: invert(0.3);
 }
