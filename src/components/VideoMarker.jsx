@@ -12,6 +12,3 @@ const VideoMarker = (props) => {
   };
   
   export default VideoMarker;
-
-
-<p className="marker">1</p>

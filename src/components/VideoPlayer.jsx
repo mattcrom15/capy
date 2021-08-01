@@ -6,6 +6,7 @@ import PauseIcon from '../static/icons/pause.svg'
 import BackIcon from '../static/icons/skip-back.svg'
 import filePlusIcon from '../static/icons/file-plus.svg'
 import OverlaySlider from './overlaySlider'
+import VolumeSlider from './VolumeSlider'
 
 
 const VideoPlayer = (props) => {
@@ -15,6 +16,8 @@ const VideoPlayer = (props) => {
     const [OnProgress, setOnProgress] = useState('playedSeconds');
     const [Seeking,setSeeking] = useState(false)
     const [Shit,setShit] = useState(0)
+    const [Volume, setVolume] = useState(0)
+    const [AudioMuted, setAudioMuted] = useState(false)
     
     const player = React.createRef();
 
@@ -30,13 +33,24 @@ const VideoPlayer = (props) => {
       setOnProgress('playedSeconds')
     }
 
-    function seekChange(e,j) {
-      const MouseLocation =  j 
+    function seekChange(e,VideoSeek) {
+      const MouseLocation =  VideoSeek 
+      console.log(VideoSeek)
       if(Seeking == true){
         player.current.seekTo(MouseLocation,'seconds')
         setTime(MouseLocation)
       }
     
+    }
+
+    function HandleVolumeChanges(e,volChange){
+      console.log(volChange)
+      setVolume(volChange)
+
+    }
+
+    function HandleAudioMuteChanges(e){
+      setAudioMuted(true)
     }
 
     return (
@@ -46,19 +60,27 @@ const VideoPlayer = (props) => {
             height='100%'
             playing={Playing} 
             ref={player} 
-            onDuration={setVideoDuration} onProgress={setOnProgress}/>
+            onDuration={setVideoDuration} 
+            onProgress={setOnProgress}
+            volume={Volume}
+            muted={AudioMuted}/>
             <OverlaySlider  
             value={OnProgress['playedSeconds']}
             max={VideoDuration}
             MouseDown={() =>setSeeking(true)}
-            seekChange={()=> seekChange(this)}
+            seekChange={(e)=> seekChange(this,e.target.value)}
             onMouseUp={()=> setSeeking(false)}/>
-            {/* // mm={(e)=>seekChange(this,e.nativeEvent.offsetX)}/>  */}
 
             <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
             <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
             <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
             <Button onClick={() => CurrentTime()} icon={filePlusIcon}>set time</Button>
+            <VolumeSlider 
+            value={Volume}
+            mute={AudioMuted}
+            MouseDown={() =>setSeeking(true)}
+            volumeChange = {(e)=> HandleVolumeChanges(this,e.target.value)}
+            onMouseUp={()=> setSeeking(false)}/>
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(Seeking)}</p>

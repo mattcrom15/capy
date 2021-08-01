@@ -7,16 +7,15 @@ const OverlaySlider = (props) => {
 
 
     return (
-        <div className="stupid-slider">
+        <div className="slider-container">
             <input type="range" 
-            style={{width: '100%'}}
+            className="slider-main"
             min='0' 
             max={props.max} 
             value={props.value}
             onMouseDown={props.MouseDown} 
             onMouseUp={props.onMouseUp} 
-            onChange={props.seekChange} 
-            onMouseMove={props.mm}/>
+            onChange={props.seekChange}/>
             <VideoMarker/>
         </div>
         
