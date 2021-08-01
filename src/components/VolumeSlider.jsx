@@ -3,7 +3,7 @@ import React from 'react'
 const VolumeSlider = (props) => {
     return (
         <div>
-            <input type="checkbox" name="muted" id="" checked={props.mute}/>
+            <input type="checkbox" name="muted" id="" checked={props.mute} onChange={props.HandleAudioMuteChanges}/>
             <input 
                 type="range" 
                 name="VolumeSlider" 

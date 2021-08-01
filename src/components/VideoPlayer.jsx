@@ -16,7 +16,7 @@ const VideoPlayer = (props) => {
     const [OnProgress, setOnProgress] = useState('playedSeconds');
     const [Seeking,setSeeking] = useState(false)
     const [Shit,setShit] = useState(0)
-    const [Volume, setVolume] = useState(0)
+    const [Volume, setVolume] = useState(0.8)
     const [AudioMuted, setAudioMuted] = useState(false)
     
     const player = React.createRef();
@@ -34,23 +34,21 @@ const VideoPlayer = (props) => {
     }
 
     function seekChange(e,VideoSeek) {
-      const MouseLocation =  VideoSeek 
-      console.log(VideoSeek)
       if(Seeking == true){
-        player.current.seekTo(MouseLocation,'seconds')
-        setTime(MouseLocation)
+        player.current.seekTo(VideoSeek,'seconds')
+        setTime(VideoSeek)
       }
     
     }
 
     function HandleVolumeChanges(e,volChange){
-      console.log(volChange)
       setVolume(volChange)
 
     }
 
-    function HandleAudioMuteChanges(e){
-      setAudioMuted(true)
+    function HandleAudioMuteChanges(){
+        setAudioMuted(!AudioMuted)
+
     }
 
     return (
@@ -80,7 +78,8 @@ const VideoPlayer = (props) => {
             mute={AudioMuted}
             MouseDown={() =>setSeeking(true)}
             volumeChange = {(e)=> HandleVolumeChanges(this,e.target.value)}
-            onMouseUp={()=> setSeeking(false)}/>
+            onMouseUp={()=> setSeeking(false)}
+            HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(Seeking)}</p>
