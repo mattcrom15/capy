@@ -6,7 +6,7 @@ const VideoMarker = (props) => {
 
 
     return (
-        <p className="marker">1</p>
+        <p className="marker" style={{left: props.position}}></p>
     
     );
   };

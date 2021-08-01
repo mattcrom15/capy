@@ -50,6 +50,34 @@ html{
     cursor: pointer;
 }
 
+.volume-slider{
+    -webkit-appearance: none;
+    background: var(--midblue); 
+    border-radius: 25px;
+   
+}
+
+
+.volume-slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 25px;
+  background: var(--lightblue);
+  cursor: pointer;
+  
+}
+
+.volume-slider::-moz-range-thumb{
+  width: 15px;
+  height: 15px;
+  border-radius: 25px;
+  background: var(--lightblue);
+  cursor: pointer;
+
+}
+
 .slider-main{
     width: 100%;
     cursor: pointer;
@@ -84,5 +112,6 @@ html{
     background: var(--paradisepink);
     Top:0;
     margin: 0;
-    padding: 0 5px;
+    padding: 0;
+    
 }

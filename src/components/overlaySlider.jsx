@@ -16,7 +16,7 @@ const OverlaySlider = (props) => {
             onMouseDown={props.MouseDown} 
             onMouseUp={props.onMouseUp} 
             onChange={props.seekChange}/>
-            <VideoMarker/>
+            <VideoMarker position= {props.position}/>
         </div>
         
     );

@@ -3,8 +3,15 @@ import React from 'react'
 const VolumeSlider = (props) => {
     return (
         <div>
-            <input type="checkbox" name="muted" id="" checked={props.mute} onChange={props.HandleAudioMuteChanges}/>
             <input 
+                type="checkbox" 
+                name="muted" 
+                id="" 
+                checked={props.mute} 
+                onChange={props.HandleAudioMuteChanges} 
+                className="volume-mute-button"/>
+            <input 
+                className="volume-slider"
                 type="range" 
                 name="VolumeSlider" 
                 min="0" 

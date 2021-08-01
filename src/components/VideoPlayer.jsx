@@ -53,33 +53,35 @@ const VideoPlayer = (props) => {
 
     return (
         <div className="video-player-container">
-            <ReactPlayer url={props.videoFile} 
-            width='100%'
-            height='100%'
-            playing={Playing} 
-            ref={player} 
-            onDuration={setVideoDuration} 
-            onProgress={setOnProgress}
-            volume={Volume}
-            muted={AudioMuted}/>
+            <ReactPlayer 
+              url={props.videoFile} 
+              width='100%'
+              height='100%'
+              playing={Playing} 
+              ref={player} 
+              onDuration={setVideoDuration} 
+              onProgress={setOnProgress}
+              volume={Volume}
+              muted={AudioMuted}/>
             <OverlaySlider  
-            value={OnProgress['playedSeconds']}
-            max={VideoDuration}
-            MouseDown={() =>setSeeking(true)}
-            seekChange={(e)=> seekChange(this,e.target.value)}
-            onMouseUp={()=> setSeeking(false)}/>
+              value={OnProgress['playedSeconds']}
+              max={VideoDuration}
+              MouseDown={() =>setSeeking(true)}
+              seekChange={(e)=> seekChange(this,e.target.value)}
+              onMouseUp={()=> setSeeking(false)}
+              position = {OnProgress['playedSeconds']}/>
 
             <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
             <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
             <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
             <Button onClick={() => CurrentTime()} icon={filePlusIcon}>set time</Button>
             <VolumeSlider 
-            value={Volume}
-            mute={AudioMuted}
-            MouseDown={() =>setSeeking(true)}
-            volumeChange = {(e)=> HandleVolumeChanges(this,e.target.value)}
-            onMouseUp={()=> setSeeking(false)}
-            HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
+              value={Volume}
+              mute={AudioMuted}
+              MouseDown={() =>setSeeking(true)}
+              volumeChange = {(e)=> HandleVolumeChanges(this,e.target.value)}
+              onMouseUp={()=> setSeeking(false)}
+              HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(Seeking)}</p>
