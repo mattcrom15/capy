@@ -25,7 +25,9 @@ html{
 
 .video-player-container{
     position: relative;
-    width: 60%;
+    width: 95%;
+    margin:0;
+    margin-right: 2rem;
 }
 
 .timeline-container{
@@ -113,5 +115,26 @@ html{
     Top:0;
     margin: 0;
     padding: 0;
+    
+}
+
+.cuelist-container{
+    background-color: var(--midblue);
+    width: 25%;
+    list-style: none;
+    text-decoration: none;
+
+    
+}
+
+.cuelist-container ul{
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+}
+
+.cueitem-container{
+    background-color: var(--darkblue);
+    padding: 0.1rem;
     
 }

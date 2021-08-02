@@ -12,17 +12,16 @@ import Button from '../components/Button'
 const video = VideoClip
 
 function VideoEditor() {
-    const [CueItems,setCueItems] = useState(['test','test02']);
+const [CueItems,setCueItems] = useState([<CueItem cueName="test"/>,<CueItem cueName="test"/>]);
 
   return (
     <div>
-        
+        <div style={{display:'flex'}}>
         <VideoPlayer videoFile= {video} />
-        <h1>Hello world</h1>
-        <Button >Add Cue</Button>
         <CueList>
            {CueItems}
         </CueList>
+        </div>
     </div>
 
   );
