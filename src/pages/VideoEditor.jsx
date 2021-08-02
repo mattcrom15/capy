@@ -8,6 +8,8 @@ import CueItem from '../components/CueItem'
 import Button from '../components/Button'
 
 
+//add custom url
+const video = VideoClip
 
 function VideoEditor() {
     const [CueItems,setCueItems] = useState(['test','test02']);
@@ -15,7 +17,7 @@ function VideoEditor() {
   return (
     <div>
         
-        <VideoPlayer videoFile= {VideoClip} />
+        <VideoPlayer videoFile= {video} />
         <h1>Hello world</h1>
         <Button >Add Cue</Button>
         <CueList>

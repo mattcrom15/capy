@@ -7,6 +7,7 @@ import BackIcon from '../static/icons/skip-back.svg'
 import filePlusIcon from '../static/icons/file-plus.svg'
 import OverlaySlider from './overlaySlider'
 import VolumeSlider from './VolumeSlider'
+import Timecode from './Timecode'
 
 
 const VideoPlayer = (props) => {
@@ -18,6 +19,7 @@ const VideoPlayer = (props) => {
     const [Shit,setShit] = useState(0)
     const [Volume, setVolume] = useState(0.8)
     const [AudioMuted, setAudioMuted] = useState(false)
+    const [CurrentTimecode, setCurrentTimecode] = useState('00:00:00')
     
     const player = React.createRef();
 
@@ -51,9 +53,12 @@ const VideoPlayer = (props) => {
 
     }
 
+    
+
     return (
-        <div className="video-player-container">
-            <ReactPlayer 
+        <div>
+          <div  className="video-player-container">
+          <ReactPlayer 
               url={props.videoFile} 
               width='100%'
               height='100%'
@@ -70,7 +75,7 @@ const VideoPlayer = (props) => {
               seekChange={(e)=> seekChange(this,e.target.value)}
               onMouseUp={()=> setSeeking(false)}
               position = {OnProgress['playedSeconds']}/>
-
+          </div>
             <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
             <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
             <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
@@ -85,6 +90,7 @@ const VideoPlayer = (props) => {
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(Seeking)}</p>
+            <Timecode seconds={CurrentTimecode}/>
         </div>
     );
   };
