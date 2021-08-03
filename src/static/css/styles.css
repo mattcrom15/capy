@@ -56,6 +56,7 @@ html{
     -webkit-appearance: none;
     background: var(--midblue); 
     border-radius: 25px;
+    
    
 }
 
@@ -136,5 +137,22 @@ html{
 .cueitem-container{
     background-color: var(--darkblue);
     padding: 0.1rem;
+    
+}
+
+.controls-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.timecode-container{
+    display: flex;
+    margin-left: 1rem;
+   
+}
+
+.timecode-container p {
+    margin: 0 0.2rem;
     
 }

@@ -35,6 +35,12 @@ const VideoPlayer = (props) => {
       setOnProgress('playedSeconds')
     }
 
+    function ToEnd(){
+      player.current.seekTo(VideoDuration,'seconds')
+      setTime(VideoDuration)
+      setOnProgress('playedSeconds')
+    }
+
     function seekChange(e,VideoSeek) {
       if(Seeking == true){
         player.current.seekTo(VideoSeek,'seconds')
@@ -93,22 +99,23 @@ const VideoPlayer = (props) => {
               seekChange={(e)=> seekChange(this,e.target.value)}
               onMouseUp={()=> setSeeking(false)}
               position = {OnProgress['playedSeconds']}/>
+            <div className="controls-container">
+              <Timecode duration={VideoDuration} progress={OnProgress['playedSeconds']}/>
+              <div>
+                <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
+                <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
+                <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
+                <Button onClick={() => ToEnd()} icon={BackIcon} style = {{transform:'rotate(180deg)'}}>forward</Button>
+              </div>
+              <VolumeSlider 
+                value={Volume}
+                mute={AudioMuted}
+                MouseDown={() =>setSeeking(true)}
+                volumeChange = {(e)=> HandleVolumeChanges(this,e.target.value)}
+                onMouseUp={()=> setSeeking(false)}
+                HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
+            </div>
           </div>
-            <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
-            <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
-            <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
-            <sectionInput currentTime={CurrentTime}></sectionInput>
-            <VolumeSlider 
-              value={Volume}
-              mute={AudioMuted}
-              MouseDown={() =>setSeeking(true)}
-              volumeChange = {(e)=> HandleVolumeChanges(this,e.target.value)}
-              onMouseUp={()=> setSeeking(false)}
-              HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
-            <h1>{Time}</h1>
-            <h1>{VideoDuration}</h1>
-            <p>{String(Seeking)}</p>
-            <Timecode duration={VideoDuration} progress={OnProgress['playedSeconds']}/>
         </div>
     );
   };
