@@ -4,10 +4,10 @@ import Button from './Button'
 import PlayIcon from '../static/icons/play.svg'
 import PauseIcon from '../static/icons/pause.svg'
 import BackIcon from '../static/icons/skip-back.svg'
-import filePlusIcon from '../static/icons/file-plus.svg'
 import OverlaySlider from './overlaySlider'
 import VolumeSlider from './VolumeSlider'
 import Timecode from './Timecode'
+import sectionInput from './SectionInput'
 
 
 const VideoPlayer = (props) => {
@@ -53,7 +53,24 @@ const VideoPlayer = (props) => {
 
     }
 
+    function format (seconds) {
+      const date = new Date(seconds * 1000)
+      const hh = date.getUTCHours()
+      const mm = date.getUTCMinutes()
+      const ss = pad(date.getUTCSeconds())
+      if (hh) {
+        return `${hh}:${pad(mm)}:${ss}`
+      }
+      return `${mm}:${ss}`
+    }
     
+    function pad (string) {
+      return ('0' + string).slice(-2)
+    }
+
+    function SetTimecodes(seconds){
+      setVideoDuration()
+    }
 
     return (
         <div>
@@ -66,6 +83,7 @@ const VideoPlayer = (props) => {
               ref={player} 
               onDuration={setVideoDuration} 
               onProgress={setOnProgress}
+              progressInterval='1000/30'
               volume={Volume}
               muted={AudioMuted}/>
             <OverlaySlider  
@@ -79,7 +97,7 @@ const VideoPlayer = (props) => {
             <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
             <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
             <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
-            <Button onClick={() => CurrentTime()} icon={filePlusIcon}>set time</Button>
+            <sectionInput currentTime={CurrentTime}></sectionInput>
             <VolumeSlider 
               value={Volume}
               mute={AudioMuted}
@@ -90,7 +108,7 @@ const VideoPlayer = (props) => {
             <h1>{Time}</h1>
             <h1>{VideoDuration}</h1>
             <p>{String(Seeking)}</p>
-            <Timecode seconds={CurrentTimecode}/>
+            <Timecode duration={VideoDuration} progress={OnProgress['playedSeconds']}/>
         </div>
     );
   };
