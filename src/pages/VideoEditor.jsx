@@ -5,7 +5,7 @@ import VideoClip from '../client/videos/Ed Sheeran - blow - live.mp4'
 import '../static/css/styles.css'
 import CueList from '../components/CueList'
 import CueItem from '../components/CueItem'
-import Button from '../components/Button'
+import Button from '../components/IconButton'
 
 
 //add custom url

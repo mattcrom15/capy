@@ -5,6 +5,7 @@
     --paleblue:#587092;
     --lightblue:#c4dcff;
     --paradisepink: #E5446D;
+    --border-radius: 5px;
 }
 
 
@@ -124,6 +125,7 @@ html{
     width: 25%;
     list-style: none;
     text-decoration: none;
+   
 
     
 }
@@ -144,6 +146,7 @@ html{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 .timecode-container{
@@ -154,5 +157,46 @@ html{
 
 .timecode-container p {
     margin: 0 0.2rem;
+    
+}
+
+.input-container{
+    width: 100%;
+    height: 75px;
+    background: var(--midblue);
+    border: 2px solid var(--midblue2);
+    color: white;
+    margin-bottom: 0.5rem;
+    resize: none;
+    transition: 0.3s ease-in-out;
+    font-size: 18px;
+    border-radius: var(--border-radius);
+
+
+}
+
+.input-container:focus{
+    outline: none !important;
+    background: var(--midblue2);
+    border: 2px solid var(--lightblue);
+}
+
+.text-button{
+    background: var(--midblue);
+    color:white;
+    border: 2px solid var(--midblue2);
+    padding: 0.5rem;
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border-radius: var(--border-radius);
+
+}
+
+.text-button:hover{
+    background: var(--lightblue);
+    color: var(--darkblue);
+    border: 2px solid var(--lightblue);
     
 }

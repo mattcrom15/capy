@@ -1,19 +1,19 @@
 import React  from 'react'
-import Button from './Button'
+import TextButton from './TextButton'
 import filePlusIcon from '../static/icons/file-plus.svg'
 
+ 
 
-
-const sectionInput = (props) => {
+const SectionInput = (props) => {
     function CreateCue(){
         console.log(props.currentTime)
     }
     return (
-      <div>
-        <input type="text"/>
-        <Button onClick={CreateCue} currentTime={props.currentTime} icon={filePlusIcon}>CreateCue</Button>
-      </div>
+        <div>
+        <textarea type="text-area" name="text"  rows="4" cols="50" className="input-container"/>
+        <TextButton onClick={CreateCue} currentTime={props.currentTime}>Create Cue</TextButton>
+        </div>
     );
   };
   
-  export default sectionInput;
+  export default SectionInput;

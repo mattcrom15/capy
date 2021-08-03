@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
-import Button from './Button'
+import IconButton from './IconButton'
 import PlayIcon from '../static/icons/play.svg'
 import PauseIcon from '../static/icons/pause.svg'
 import BackIcon from '../static/icons/skip-back.svg'
 import OverlaySlider from './overlaySlider'
 import VolumeSlider from './VolumeSlider'
 import Timecode from './Timecode'
-import sectionInput from './SectionInput'
+import SectionInput from './SectionInput'
 
 
 const VideoPlayer = (props) => {
@@ -102,10 +102,10 @@ const VideoPlayer = (props) => {
             <div className="controls-container">
               <Timecode duration={VideoDuration} progress={OnProgress['playedSeconds']}/>
               <div>
-                <Button onClick={() => restart()} icon={BackIcon}>Back</Button>
-                <Button onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</Button>
-                <Button onClick={() => setPlaying(true)} icon={PlayIcon}>Play</Button>
-                <Button onClick={() => ToEnd()} icon={BackIcon} style = {{transform:'rotate(180deg)'}}>forward</Button>
+                <IconButton onClick={() => restart()} icon={BackIcon}>Back</IconButton>
+                <IconButton onClick={() => setPlaying(false)} icon={PauseIcon}>Pause</IconButton>
+                <IconButton onClick={() => setPlaying(true)} icon={PlayIcon}>Play</IconButton>
+                <IconButton onClick={() => ToEnd()} icon={BackIcon} style = {{transform:'rotate(180deg)'}}>forward</IconButton>
               </div>
               <VolumeSlider 
                 value={Volume}
@@ -115,6 +115,7 @@ const VideoPlayer = (props) => {
                 onMouseUp={()=> setSeeking(false)}
                 HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
             </div>
+            <SectionInput/>
           </div>
         </div>
     );

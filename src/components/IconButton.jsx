@@ -2,11 +2,11 @@ import React from 'react'
 
 
 
-const Button = (props) => {
+const IconButton = (props) => {
     return (
         <img src={props.icon} className="icon-button" onClick={props.onClick} style={props.style} />
         
     );
   };
   
-  export default Button;
+  export default IconButton;

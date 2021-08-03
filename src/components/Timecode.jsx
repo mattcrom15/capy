@@ -27,7 +27,7 @@ const Timecode = (props) => {
       <div className="timecode-container">
         <time datetime="00:00:00" progress={props.progress}>{ShowCurrentSeconds(props.progress)}</time>
         <p>/</p>
-        <time datetime="00:00:00" duration={props.duration} style={{opacity:'0.7'}}>{ShowSeconds(props.duration)}</time>
+        <time datetime="00:00:00" duration={props.duration} style={{color: 'var(--paleblue)'}}>{ShowSeconds(props.duration)}</time>
       </div>
     );
   };
