@@ -115,7 +115,7 @@ const VideoPlayer = (props) => {
                 onMouseUp={()=> setSeeking(false)}
                 HandleAudioMuteChanges={(e)=> HandleAudioMuteChanges()}/>
             </div>
-            <SectionInput/>
+            <SectionInput onClick={props.onClick}/>
           </div>
         </div>
     );

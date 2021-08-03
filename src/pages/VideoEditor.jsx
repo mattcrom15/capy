@@ -1,23 +1,27 @@
 import React,{useEffect, useState} from 'react'
 import VideoPlayer from '../components/VideoPlayer'
-// import './static/css/styles.css';
 import VideoClip from '../client/videos/Ed Sheeran - blow - live.mp4' 
 import '../static/css/styles.css'
 import CueList from '../components/CueList'
 import CueItem from '../components/CueItem'
-import Button from '../components/IconButton'
-
 
 //add custom url
 const video = VideoClip
 
 function VideoEditor() {
-const [CueItems,setCueItems] = useState([<CueItem cueName="test"/>,<CueItem cueName="test"/>]);
+const [CueItems,setCueItems] = useState([]);
 
+function AddCue(){
+  console.log('cue added')
+  var index = CueItems.length
+  const cueName = index + "name"
+  const cueItem = <CueItem cueName={cueName}/>
+  setCueItems(CueItems => CueItems.concat(cueItem))
+}
   return (
     <div>
         <div style={{display:'flex'}}>
-        <VideoPlayer videoFile= {video} />
+        <VideoPlayer videoFile={video} onClick={()=> AddCue()} />
         <CueList>
            {CueItems}
         </CueList>

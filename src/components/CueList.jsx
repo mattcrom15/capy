@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from './IconButton'
 import CueItem from './CueItem';
 
 
