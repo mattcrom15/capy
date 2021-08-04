@@ -8,13 +8,11 @@ import OverlaySlider from './overlaySlider'
 import VolumeSlider from './VolumeSlider'
 import Timecode from './Timecode'
 import SectionInput from './SectionInput'
-import {CurrentTimecode} from './atoms'
-import {useRecoilState} from 'recoil'
+
 
 
 
 const VideoPlayer = (props) => {
-    const [InputValue, SetInputValue] = useRecoilState(CurrentTimecode)
     const [Playing,setPlaying] = useState(false);
     const [Time,setTime] = useState();
     const [VideoDuration, setVideoDuration] = useState();
@@ -46,7 +44,7 @@ const VideoPlayer = (props) => {
     }
 
     function seekChange(e,VideoSeek) {
-      if(Seeking == true){
+      if(Seeking === true){
         player.current.seekTo(VideoSeek,'seconds')
         setTime(VideoSeek)
       }
@@ -63,24 +61,6 @@ const VideoPlayer = (props) => {
 
     }
 
-    function format (seconds) {
-      const date = new Date(seconds * 1000)
-      const hh = date.getUTCHours()
-      const mm = date.getUTCMinutes()
-      const ss = pad(date.getUTCSeconds())
-      if (hh) {
-        return `${hh}:${pad(mm)}:${ss}`
-      }
-      return `${mm}:${ss}`
-    }
-    
-    function pad (string) {
-      return ('0' + string).slice(-2)
-    }
-
-    function SetTimecodes(seconds){
-      setVideoDuration()
-    }
 
     return (
         <div>

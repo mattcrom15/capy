@@ -8,5 +8,5 @@ export const InputState = atom({
 
 export const CurrentTimecode = atom({
     key: 'CurrentTimecode',
-    default: '',
+    default: '00:00:00.00',
 });

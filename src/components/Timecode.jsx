@@ -1,9 +1,11 @@
 import React,{useState}  from 'react'
+import {CurrentTimecode} from './atoms'
+import {useRecoilState} from 'recoil'
 
 
 
 const Timecode = (props) => {
-    const [CurrentTimecode,SetCurrentTimecode] = useState(props.progress)
+    const [currentTimecode, SetcurrentTimecode] = useRecoilState(CurrentTimecode)
     function ShowSeconds(seconds){
       if(!seconds){
         //pass
@@ -13,11 +15,14 @@ const Timecode = (props) => {
     } 
 
     function ShowCurrentSeconds(seconds){
+      var time = '00:00:00.00'
       if(!seconds){
-        return '00:00:00.00'
+        SetcurrentTimecode(time)
+        return time
       } else{
-        
-        return new Date(seconds * 1000).toISOString().substr(11, 11)  
+        time = new Date(seconds * 1000).toISOString().substr(11, 11)  
+        SetcurrentTimecode(time)
+        return time 
       } 
     } 
 

@@ -17,7 +17,6 @@ const SectionInput = (props) => {
             className="input-container"
             onChange={(e)=>SetInputValue(e.target.value)}/>
             <TextButton onClick={props.onClick} currentTime={props.currentTime}>Create Cue</TextButton>
-        <p>{InputValue}</p>
         </div>
     );
   };
