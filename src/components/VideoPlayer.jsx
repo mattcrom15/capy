@@ -8,9 +8,13 @@ import OverlaySlider from './overlaySlider'
 import VolumeSlider from './VolumeSlider'
 import Timecode from './Timecode'
 import SectionInput from './SectionInput'
+import {CurrentTimecode} from './atoms'
+import {useRecoilState} from 'recoil'
+
 
 
 const VideoPlayer = (props) => {
+    const [InputValue, SetInputValue] = useRecoilState(CurrentTimecode)
     const [Playing,setPlaying] = useState(false);
     const [Time,setTime] = useState();
     const [VideoDuration, setVideoDuration] = useState();
@@ -19,7 +23,7 @@ const VideoPlayer = (props) => {
     const [Shit,setShit] = useState(0)
     const [Volume, setVolume] = useState(0.8)
     const [AudioMuted, setAudioMuted] = useState(false)
-    const [CurrentTimecode, setCurrentTimecode] = useState('00:00:00')
+
     
     const player = React.createRef();
 

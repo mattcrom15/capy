@@ -5,7 +5,6 @@ import React,{useState}  from 'react'
 const Timecode = (props) => {
     const [CurrentTimecode,SetCurrentTimecode] = useState(props.progress)
     function ShowSeconds(seconds){
-      console.log(seconds)
       if(!seconds){
         //pass
       } else{
@@ -14,7 +13,6 @@ const Timecode = (props) => {
     } 
 
     function ShowCurrentSeconds(seconds){
-      console.log(seconds)
       if(!seconds){
         return '00:00:00.00'
       } else{
