@@ -24,7 +24,11 @@ function AddCue(){
   console.log(ct)
   var index = CueItems.length
   const cueName = inVal
-  const cueItem = <CueItem cueName={cueName} startTime={CurrentTime}/>
+  //add cue item
+  const cueItem = <CueItem 
+  cueNumber={index}
+  cueName={cueName} 
+  startTime={CurrentTime}/>
   setCueItems(CueItems => CueItems.concat(cueItem))
 }
   return (

@@ -137,6 +137,8 @@ html{
 }
 
 .cueitem-container{
+    display: flex;
+    justify-content: space-between;
     background-color: var(--darkblue);
     padding: 0.1rem;
     
